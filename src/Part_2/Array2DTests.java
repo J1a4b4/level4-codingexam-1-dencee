@@ -2,6 +2,8 @@ package Part_2;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class Array2DTests {
@@ -48,6 +50,30 @@ class Array2DTests {
 	 * array of arrays. You can make helper methods if needed.
 	 */
 	public <T> void reverseMatrix(T[][] arr) {
-		
+		for (int i = 0; i < arr.length; i++) {
+			reverseArray(arr[i]);
+			//print2DArray(arr);
+		}
+		reverseArray(arr);
+		//print2DArray(arr);
+	}
+	
+	public <T> void reverseArray(T[] arr) {
+		ArrayList<T> ts = new ArrayList<T>();
+		for (int i = 0; i < arr.length; i++) {
+			ts.add(arr[i]);
+		}
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = ts.get(ts.size() - 1 - i);
+		}
+	}
+	public <T> void print2DArray(T[][] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.print("\n");
+		}
+		System.out.println("STOP");
 	}
 }
